@@ -9,7 +9,32 @@ defineProps({
 </script>
 
 <template>
-  <article class="card">
+  <article
+    class="card"
+    :style="`
+      --block-background: var(--white);
+      --container-background: var(--gray-lightest);
+    `"
+  >
+    <span
+      class="card__decal"
+      aria-hidden="true"
+    >
+      <svg
+        class="card__decal-mask"
+        viewBox="0 0 144 144"
+      >
+        <use href="@icons/sprite.svg#mask" />
+      </svg>
+      <div class="card__decal-square">
+        <svg
+          class="card__decal-arrow"
+          viewBox="0 0 36 24"
+        >
+          <use href="@icons/sprite.svg#arrow" />
+        </svg>
+      </div>
+    </span>
     <div class="card__image-wrapper">
       <img
         class="card__image"
@@ -39,63 +64,80 @@ defineProps({
 @use '@vars/colors';
 
 .card {
-  $square-width: clamp(5rem, 17vw, 8.5rem);
+  --white: #{colors.$white};
+  --gray-lightest: #{colors.$gray-lightest};
+
+  $decal-width: clamp(5rem, 17vw, 8.5rem);
+  $square-width: calc($decal-width * 0.6);
   $radius: 1.5rem;
 
   display: flex;
   gap: clamp(1rem, 3vw, 1.5rem);
 
-  background-color: colors.$gray-lightest;
+  background-color: var(--block-background);
   border-radius: $radius;
 
   position: relative;
 
   @media (min-width: calc($mobile + 1px)) {
-    padding: 0.25rem $square-width 0.25rem 0.25rem;
+    padding: 0.25rem $decal-width 0.25rem 0.25rem;
   }
   @media (max-width: $mobile) {
     padding: 0.25rem;
     flex-wrap: wrap;
   }
 
-  &::before, &::after {
-    content: '';
+  &__decal {
     position: absolute;
-
+    right: 0;
     @media (min-width: calc($mobile + 1px)) {
       top: 0;
-      right: 0;
     }
     @media (max-width: $mobile) {
-      top: auto;
       bottom: 0;
     }
-  }
 
-  &::before {
-    width: $square-width;
-    height: $square-width;
+    width: $decal-width;
+    height: $decal-width;
 
-    background-image: url('@icons/mask.svg');
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    @media (max-width: $mobile) {
-      rotate: 90deg;
+    &-mask {
+      position: absolute;
+      inset: 0;
+      color: var(--container-background);
+      @media (max-width: $mobile) {
+        rotate: 90deg;
+      }
     }
-  }
-  &::after {
-    width: calc($square-width * 0.6);
-    height: calc($square-width * 0.6);
 
-    background-image: url('@icons/arrow.svg');
-    background-size: 50% auto;
-    background-position: center;
-    background-repeat: no-repeat;
+    &-square {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    box-shadow: 0 1px 0.25rem 0px rgba(#000, 0.25);
-    border-radius: $radius;
+      width: $square-width;
+      height: $square-width;
+
+      position: absolute;
+      right: 0;
+      @media (min-width: calc($mobile + 1px)) {
+        top: 0;
+      }
+      @media (max-width: $mobile) {
+        bottom: 0;
+      }
+
+      background: colors.$white;
+      border-radius: $radius;
+    }
+
+    &-arrow {
+      color: colors.$red;
+      width: 50%;
+      @media (max-width: $mobile) {
+        rotate: -45deg;
+      }
+    }
+
   }
 
   &__image {
@@ -155,9 +197,9 @@ defineProps({
       flex-wrap: wrap;
       gap: 0.5rem;
 
-      // @media (max-width: $mobile) {
-      //   padding-right: calc($square-width * 0.6);
-      // }
+      @media (max-width: $mobile) {
+        padding-right: $square-width;
+      }
     }
 
     &:nth-child(even) {

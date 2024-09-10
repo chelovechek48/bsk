@@ -49,3 +49,7 @@ const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
     </ol>
   </nav>
 </template>
+
+<style lang="scss" scoped>
+
+</style>
