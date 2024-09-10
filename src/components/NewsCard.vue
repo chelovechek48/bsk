@@ -45,23 +45,27 @@ defineProps({
   display: flex;
   gap: clamp(1rem, 3vw, 1.5rem);
 
+  background-color: colors.$gray-lightest;
   border-radius: $radius;
-  padding: 0.25rem $square-width 0.25rem 0.25rem;
 
+  position: relative;
+
+  @media (min-width: calc($mobile + 1px)) {
+    padding: 0.25rem $square-width 0.25rem 0.25rem;
+  }
   @media (max-width: $mobile) {
     padding: 0.25rem;
     flex-wrap: wrap;
   }
 
-  background-color: colors.$gray-lightest;
-
-  position: relative;
   &::before, &::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
 
+    @media (min-width: calc($mobile + 1px)) {
+      top: 0;
+      right: 0;
+    }
     @media (max-width: $mobile) {
       top: auto;
       bottom: 0;
@@ -95,6 +99,12 @@ defineProps({
   }
 
   &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $radius;
+
     &-wrapper {
       min-height: 13.75rem;
 
@@ -105,11 +115,6 @@ defineProps({
         flex: 1 1 100%;
       }
     }
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: $radius;
   }
 
   &__text {
@@ -118,6 +123,7 @@ defineProps({
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     @media (min-width: calc($mobile + 1px)) {
       gap: 1rem;
       padding-block: 1rem;
@@ -137,22 +143,22 @@ defineProps({
   }
 
   &__tag {
-    &-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-
-      @media (max-width: $mobile) {
-        padding-right: calc($square-width * 0.6);
-      }
-    }
-
     font-size: 1rem;
     white-space: nowrap;
 
     border-radius: $radius;
     border: 1px solid currentColor;
     padding: 0.25rem 0.75rem;
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      // @media (max-width: $mobile) {
+      //   padding-right: calc($square-width * 0.6);
+      // }
+    }
 
     &:nth-child(even) {
       color: colors.$red;
