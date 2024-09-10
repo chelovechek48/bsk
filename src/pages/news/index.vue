@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <NewsList />
+  <NewsList title="Основные новости" />
 </template>
