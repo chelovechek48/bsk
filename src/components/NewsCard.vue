@@ -4,6 +4,10 @@ defineProps({
     type: Object,
     required: true,
   },
+  background: {
+    type: Object,
+    required: true,
+  },
 });
 
 </script>
@@ -12,8 +16,8 @@ defineProps({
   <article
     class="card"
     :style="`
-      --block-background: var(--white);
-      --container-background: var(--gray-lightest);
+      --block-background: ${background.block};
+      --container-background: ${background.container};
     `"
   >
     <span
@@ -46,15 +50,10 @@ defineProps({
       <header class="card__title">
         {{ article.title }}
       </header>
-      <ul class="card__tag-list">
-        <li
-          class="card__tag"
-          v-for="tag in article.tags"
-          :key="tag"
-        >
-          {{ tag }}
-        </li>
-      </ul>
+      <NewsTags
+        class="card__tags"
+        :tags="article.tags"
+      />
     </div>
   </article>
 </template>
@@ -128,6 +127,7 @@ defineProps({
 
       background: colors.$white;
       border-radius: $radius;
+      box-shadow: 0 2px 4px 0px rgba(#000, 0.25);
     }
 
     &-arrow {
@@ -184,29 +184,9 @@ defineProps({
     color: colors.$gray-dark;
   }
 
-  &__tag {
-    font-size: 1rem;
-    white-space: nowrap;
-
-    border-radius: $radius;
-    border: 1px solid currentColor;
-    padding: 0.25rem 0.75rem;
-
-    &-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-
-      @media (max-width: $mobile) {
-        padding-right: $square-width;
-      }
-    }
-
-    &:nth-child(even) {
-      color: colors.$red;
-    }
-    &:nth-child(odd) {
-      color: colors.$pink;
+  &__tags {
+    @media (max-width: $mobile) {
+      padding-right: $square-width;
     }
   }
 }

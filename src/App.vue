@@ -1,8 +1,6 @@
 <template>
   <main class="page">
-    <div class="container">
-      <NuxtPage />
-    </div>
+    <NuxtPage />
   </main>
 </template>
 
@@ -16,7 +14,9 @@
 .page {
   background-color: colors.$gray-lightest;
 }
+</style>
 
+<style lang="scss">
 .container {
   width: 100%;
   max-width: 64rem;

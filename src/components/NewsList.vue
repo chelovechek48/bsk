@@ -6,6 +6,10 @@ defineProps({
     type: String,
     required: true,
   },
+  background: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 
@@ -20,7 +24,10 @@ defineProps({
         :key="item"
       >
         <NuxtLink :to="`/news/${item.id}`">
-          <NewsCard :article="item" />
+          <NewsCard
+            :article="item"
+            :background="background"
+          />
         </NuxtLink>
       </li>
     </ul>

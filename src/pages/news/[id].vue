@@ -13,8 +13,5 @@ const article = articleList.find((item) => item.id === params.id);
 </script>
 
 <template>
-  <div>
-    <BreadCrumbs :title="article.title" />
-    <NewsModal :item="article" />
-  </div>
+  <NewsModal :item="article" />
 </template>

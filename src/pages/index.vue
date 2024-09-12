@@ -5,7 +5,9 @@ definePageMeta({
 </script>
 
 <template>
-  <NuxtLink to="/news">
-    Открыть список новостей
-  </NuxtLink>
+  <div class="container">
+    <NuxtLink to="/news">
+      Открыть список новостей
+    </NuxtLink>
+  </div>
 </template>
