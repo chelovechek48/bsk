@@ -42,8 +42,8 @@ defineProps({
     <div class="card__image-wrapper">
       <img
         class="card__image"
-        src="@images/image.webp"
-        alt=""
+        :src="article.image.src"
+        :alt="article.image.alt"
       >
     </div>
     <div class="card__text">

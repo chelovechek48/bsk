@@ -6,17 +6,9 @@
       "top": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!",
       "bottom": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!"
     },
-    "tags": [
-      "в СМИ", "акции"
-    ],
-    "datetime": "2023-10-06"
-  },
-  {
-    "id": "srednyaya-stavka-po-ipoteke-v-rossii-prevysila-7",
-    "title": "Средняя ставка по ипотеке в России превысила 7%",
-    "description": {
-      "top": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!",
-      "bottom": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!"
+    "image": {
+      "src": "https://www.bsk-32.ru/upload/iblock/570x400/jpg/url/e61/764vvex0xbmudj6ohzih6vk5r4q8a6l1/077A9348.webp",
+      "alt": "описание картинки"
     },
     "tags": [
       "в СМИ", "акции"
@@ -25,10 +17,14 @@
   },
   {
     "id": "srednyaya-stavka-po-ipoteke-v-rossii-prevysila-9",
-    "title": "Средняя ставка по ипотеке в России превысила 8%",
+    "title": "Средняя ставка по ипотеке в России превысила 9%",
     "description": {
       "top": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!",
       "bottom": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!"
+    },
+    "image": {
+      "src": "https://www.bsk-32.ru/upload/iblock/570x400/jpg/url/cee/1g6da2bvgz2u0fta7mjw0p1lr6zei5na/077A5992.webp",
+      "alt": "описание картинки"
     },
     "tags": [
       "в СМИ", "акции"
@@ -36,11 +32,15 @@
     "datetime": "2023-10-06"
   },
   {
-    "id": "srednyaya-stavka-po-ipoteke-v-rossii-prevysila-8",
-    "title": "Средняя ставка по ипотеке в России превысила 8%",
+    "id": "srednyaya-stavka-po-ipoteke-v-rossii-prevysila-10",
+    "title": "Средняя ставка по ипотеке в России превысила 10%",
     "description": {
       "top": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!",
       "bottom": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!"
+    },
+    "image": {
+      "src": "https://www.bsk-32.ru/upload/iblock/570x400/jpg/url/cee/1g6da2bvgz2u0fta7mjw0p1lr6zei5na/077A5992.webp",
+      "alt": "описание картинки"
     },
     "tags": [
       "в СМИ", "акции"
@@ -48,11 +48,31 @@
     "datetime": "2023-10-06"
   },
   {
-    "id": "srednyaya-stavka-po-ipoteke-v-rossii-prevysila-8",
-    "title": "Средняя ставка по ипотеке в России превысила 8%",
+    "id": "srednyaya-stavka-po-ipoteke-v-rossii-prevysila-11",
+    "title": "Средняя ставка по ипотеке в России превысила 11%",
     "description": {
       "top": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!",
       "bottom": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!"
+    },
+    "image": {
+      "src": "https://www.bsk-32.ru/upload/iblock/570x400/jpg/url/e61/764vvex0xbmudj6ohzih6vk5r4q8a6l1/077A9348.webp",
+      "alt": "описание картинки"
+    },
+    "tags": [
+      "в СМИ", "акции"
+    ],
+    "datetime": "2023-10-06"
+  },
+  {
+    "id": "srednyaya-stavka-po-ipoteke-v-rossii-prevysila-12",
+    "title": "Средняя ставка по ипотеке в России превысила 12%",
+    "description": {
+      "top": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!",
+      "bottom": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!"
+    },
+    "image": {
+      "src": "https://www.bsk-32.ru/upload/iblock/570x400/jpg/url/cee/1g6da2bvgz2u0fta7mjw0p1lr6zei5na/077A5992.webp",
+      "alt": "описание картинки"
     },
     "tags": [
       "в СМИ", "акции"

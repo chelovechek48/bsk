@@ -62,8 +62,8 @@ const closeModal = () => {
 
         <img
           class="modal__image"
-          src="@images/image.webp"
-          alt=""
+          :src="item.image.src"
+          :alt="item.image.alt"
         >
 
         <p class="modal__text">
