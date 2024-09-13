@@ -16,9 +16,10 @@ const getBreadcrumbs = (fullPath) => {
   const parts = fullPath.split('/');
   let path = '';
 
-  return parts.map((part) => {
-    if (part !== '') {
-      path += `/${part}`;
+  const breadcrumbs = parts.map((part) => {
+    const url = part.split('?')[0];
+    if (url !== '') {
+      path += `/${url}`;
     }
 
     const validPath = path || '/';
@@ -29,6 +30,13 @@ const getBreadcrumbs = (fullPath) => {
       path: validPath,
     };
   });
+
+  breadcrumbs.push({
+    name: props.title,
+    path: fullPath,
+  });
+
+  return breadcrumbs;
 };
 
 const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
@@ -37,8 +45,9 @@ const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
 
 <template>
   <nav>
-    <ol>
+    <ol class="breadcrumbs">
       <li
+        class="breadcrumbs__item"
         v-for="crumb in breadcrumbs"
         :key="crumb"
       >
@@ -51,5 +60,32 @@ const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
 </template>
 
 <style lang="scss" scoped>
+@use '@vars/colors';
 
+.breadcrumbs {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  display: flex;
+  gap: 0.5rem;
+
+  &__item {
+    &:not(:last-child) {
+      color: colors.$gray-dark;
+
+      position: relative;
+      &::after {
+        content: '•';
+        width: 4px;
+        height: 4px;
+        padding-left: 0.5rem;
+      }
+    }
+
+    &:last-child {
+      color: rgba(colors.$gray-dark, 0.4);
+    }
+  }
+}
 </style>

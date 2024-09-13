@@ -12,10 +12,13 @@ defineProps({
 });
 
 const modal = ref(null);
-
 onMounted(() => {
   modal.value.showModal();
 });
+
+const closeModal = () => {
+  router.push({});
+};
 
 </script>
 
@@ -23,11 +26,19 @@ onMounted(() => {
   <dialog
     ref="modal"
     class="modal"
-    @close="router.push({})"
+    @close="closeModal()"
   >
     <div class="modal__wrapper">
       <div class="modal__container container">
-        <!-- <BreadCrumbs :title="item.title" /> -->
+        <BreadCrumbs :title="item.title" />
+        <button
+          class="modal__close"
+          @click="closeModal()"
+        >
+          <svg viewBox="0 0 128 80">
+            <use href="@icons/sprite.svg#close" />
+          </svg>
+        </button>
         <header class="modal__header">
           <NewsTags :tags="item.tags" />
           <h2 class="modal__title">
@@ -74,6 +85,7 @@ onMounted(() => {
   min-width: 100%;
   min-height: 100%;
   background-color: transparent;
+  padding: 1rem;
 
   &__wrapper {
     max-width: 100rem;
@@ -82,13 +94,24 @@ onMounted(() => {
     background-color: colors.$white;
     padding-block: 1rem;
     border-radius: 1.5rem;
-    margin-block: 1rem;
+
+    position: relative;
+    overflow: hidden;
   }
 
   &__container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+
+  &__close {
+    width: 8rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: colors.$red;
+    background-color: transparent;
   }
 
   &__data {

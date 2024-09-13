@@ -7,4 +7,11 @@
     viewBox="0 0 36 24" fill="none">
     <path stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M1.4 12h33.2m0 0-9.3 10m9.3-10L25.3 2" />
   </svg>
+
+  <svg id="close"
+    viewBox="0 0 128 80" fill="none">
+    <path  fill="currentColor" d="M0 .26h16c13.255 0 24 10.745 24 24V56c0 13.255 10.745 24 24 24h35V0H0v.26ZM99 0h29v80H99z"/>
+    <path d="M100 24 68 56m0-32 32 32" stroke="#F3F3F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
 </svg>
