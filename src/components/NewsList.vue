@@ -2,6 +2,11 @@
 import json from '@json/news.json';
 
 defineProps({
+  list: {
+    type: Array,
+    required: false,
+    default: json,
+  },
   title: {
     type: String,
     required: true,
@@ -20,10 +25,10 @@ defineProps({
     </h2>
     <ul class="articles__list">
       <li
-        v-for="item in json"
+        v-for="item in list"
         :key="item"
       >
-        <NuxtLink :to="`/news/${item.id}`">
+        <NuxtLink :to="`/news?title=${item.id}`">
           <NewsCard
             :article="item"
             :background="background"

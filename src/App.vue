@@ -12,7 +12,9 @@
 @use '@vars/colors';
 
 .page {
+  min-height: 100dvh;
   background-color: colors.$gray-lightest;
+  padding-block: 1rem;
 }
 </style>
 

@@ -1,5 +1,8 @@
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 defineProps({
   item: {
@@ -8,63 +11,60 @@ defineProps({
   },
 });
 
+const modal = ref(null);
+
 onMounted(() => {
-  window.modal.showModal();
+  modal.value.showModal();
 });
 
 </script>
 
 <template>
-  <div class="container">
-    <NewsList
-      title="Основные новости"
-      :background="{ block: 'var(--white)', container: 'var(--gray-lightest)' }"
-    />
-    <dialog
-      id="modal"
-      class="modal"
-    >
-      <div class="modal__wrapper">
-        <div class="modal__container container">
-          <!-- <BreadCrumbs :title="item.title" /> -->
-          <header class="modal__header">
-            <NewsTags :tags="item.tags" />
-            <h2 class="modal__title">
-              {{ item.title }}
-            </h2>
-            <data
-              class="modal__data"
-              value=""
-            >
-              06.10.2023
-            </data>
-          </header>
-          <div>
-            <p class="modal__text">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!
-            </p>
-            <button>
-              Поделиться
-            </button>
-          </div>
-
-          <img
-            class="modal__image"
-            src="@images/image.webp"
-            alt=""
+  <dialog
+    ref="modal"
+    class="modal"
+    @close="router.push({})"
+  >
+    <div class="modal__wrapper">
+      <div class="modal__container container">
+        <!-- <BreadCrumbs :title="item.title" /> -->
+        <header class="modal__header">
+          <NewsTags :tags="item.tags" />
+          <h2 class="modal__title">
+            {{ item.title }}
+          </h2>
+          <time
+            class="modal__data"
+            :datetime="item.datetime"
           >
-
+            {{ item.datetime }}
+          </time>
+        </header>
+        <div class="modal__text-wrapper">
           <p class="modal__text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, iusto nemo! Assumenda illo aspernatur dolore veniam mollitia odit velit inventore alias eum, labore harum? Minima excepturi quia facere libero tempore amet ipsam eveniet, a provident, temporibus iure vitae commodi nulla!
+            {{ item.description.top }}
           </p>
-          <NewsList
-            title="Ещё статьи"
-            :background="{ block: 'var(--gray-lightest)', container: 'var(--white)' }"
-          />
+          <button class="modal__button-share">
+            Поделиться
+          </button>
         </div>
+
+        <img
+          class="modal__image"
+          src="@images/image.webp"
+          alt=""
+        >
+
+        <p class="modal__text">
+          {{ item.description.bottom }}
+        </p>
+        <NewsList
+          title="Ещё статьи"
+          :background="{ block: 'var(--gray-lightest)', container: 'var(--white)' }"
+        />
       </div>
-    </dialog>
-  </div>
+    </div>
+  </dialog>
 </template>
 
 <style lang="scss" scoped>
@@ -125,6 +125,20 @@ onMounted(() => {
     max-width: 37.5rem;
     font-size: 1rem;
     color: colors.$gray-medium;
+
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+  }
+
+  &__button-share {
+    font-size: 1rem;
+    color: colors.$white;
+    background-color: colors.$red;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
   }
 
   &__image {
