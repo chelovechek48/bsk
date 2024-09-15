@@ -12,16 +12,8 @@ defineProps({
 });
 
 const modal = ref(null);
-const modalIsScolled = ref(false);
 onMounted(() => {
   modal.value.showModal();
-  modal.value.addEventListener('scroll', () => {
-    if (modal.value.scrollTop) {
-      modalIsScolled.value = true;
-    } else {
-      modalIsScolled.value = false;
-    }
-  });
 });
 
 const closeModal = () => {
@@ -36,12 +28,9 @@ const closeModal = () => {
     class="modal"
     @close="closeModal()"
   >
-    <header class="modal__head">
-      <div class="container">
-        <BreadCrumbs
-          :title="item.title"
-          :scrolled="modalIsScolled"
-        />
+    <div class="modal__wrapper">
+      <header class="modal__container container">
+        <BreadCrumbs :title="item.title" />
         <button
           class="modal__close"
           @click="closeModal()"
@@ -50,9 +39,7 @@ const closeModal = () => {
             <use href="@icons/sprite.svg#close" />
           </svg>
         </button>
-      </div>
-    </header>
-    <div class="modal__wrapper">
+      </header>
       <div class="modal__container container">
         <header class="modal__header">
           <NewsTags :tags="item.tags" />
@@ -103,26 +90,20 @@ const closeModal = () => {
   background-color: transparent;
   padding: 1rem;
 
-  &__head, &__wrapper {
+  &__wrapper {
     max-width: 100rem;
     margin: 0 auto;
+
     background-color: colors.$white;
-  }
-
-  &__head {
-    z-index: 100;
-    position: sticky;
-    top: -1rem;
-
     padding-block: 1rem;
-    border-radius: 1.5rem 1.5rem 0 0;
-    overflow: hidden;
-  }
-
-  &__wrapper {
     border-radius: 1.5rem;
-    margin-top: -1.5rem;
-    padding-block: 2.5rem 1rem;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   &__container {
@@ -132,8 +113,7 @@ const closeModal = () => {
   }
 
   &__close {
-    aspect-ratio: 128 / 80;
-    height: 100%;
+    width: 8rem;
     position: absolute;
     top: 0;
     right: 0;

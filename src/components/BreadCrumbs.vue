@@ -10,6 +10,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  scrolled: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 const getBreadcrumbs = (fullPath) => {
@@ -44,8 +48,11 @@ const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
 </script>
 
 <template>
-  <nav>
-    <ol class="breadcrumbs">
+  <nav
+    v-if="!scrolled"
+    class="breadcrumbs"
+  >
+    <ol class="breadcrumbs__list">
       <li
         class="breadcrumbs__item"
         v-for="crumb in breadcrumbs"
@@ -57,6 +64,12 @@ const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
       </li>
     </ol>
   </nav>
+  <header
+    v-else
+    class="breadcrumbs breadcrumbs__title"
+  >
+    {{ title }}
+  </header>
 </template>
 
 <style lang="scss" scoped>
@@ -64,11 +77,14 @@ const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
 
 .breadcrumbs {
   font-size: 1rem;
-  font-weight: 500;
   text-transform: uppercase;
+  white-space: nowrap;
 
-  display: flex;
-  gap: 0.5rem;
+  &__list {
+    font-weight: 500;
+    display: flex;
+    gap: 0.5rem;
+  }
 
   &__item {
     &:not(:last-child) {
@@ -86,6 +102,11 @@ const breadcrumbs = ref(getBreadcrumbs(route.fullPath));
     &:last-child {
       color: rgba(colors.$gray-dark, 0.4);
     }
+  }
+
+  &__title {
+    color: colors.$gray-dark;
+    font-weight: 700;
   }
 }
 </style>
