@@ -23,6 +23,7 @@ export default {
     disableStylesheets: 'entry',
   },
 
+  css: ['@styles/_index.scss'],
   postcss: {
     plugins: {
       'postcss-preset-env': {},

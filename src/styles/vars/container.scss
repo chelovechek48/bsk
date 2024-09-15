@@ -1,0 +1,8 @@
+@use '@vars/breakpoints';
+
+.container {
+  width: 100%;
+  max-width: breakpoints.$container;
+  margin: 0 auto;
+  padding-inline: 1rem;
+}

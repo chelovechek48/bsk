@@ -79,6 +79,7 @@ const closeModal = () => {
 </template>
 
 <style lang="scss" scoped>
+@forward '@vars/container';
 @use '@vars/colors';
 
 .modal {

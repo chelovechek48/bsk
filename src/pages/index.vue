@@ -11,3 +11,7 @@ definePageMeta({
     </NuxtLink>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@forward '@vars/container';
+</style>
