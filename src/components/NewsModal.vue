@@ -180,6 +180,8 @@ const closeModal = () => {
       display: flex;
       justify-content: space-between;
       align-items: end;
+      flex-wrap: wrap;
+      gap: 1rem;;
     }
   }
 
