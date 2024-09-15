@@ -126,7 +126,7 @@ defineProps({
       }
 
       background: colors.$white;
-      border-radius: $radius;
+      border-radius: clamp(1rem, 3vw, $radius);
       box-shadow: 0 2px 4px 0px rgba(#000, 0.25);
     }
 
