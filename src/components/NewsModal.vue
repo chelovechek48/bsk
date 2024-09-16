@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-defineProps({
+const props = defineProps({
   item: {
     type: Object,
     required: true,
@@ -59,31 +59,31 @@ const closeModal = () => {
           <h2 class="modal__title">
             {{ item.title }}
           </h2>
-          <time
+          <!-- <time
             class="modal__data"
             :datetime="item.datetime"
           >
             {{ item.datetime }}
-          </time>
+          </time> -->
         </header>
         <div class="modal__text-wrapper">
-          <p class="modal__text">
+          <!-- <p class="modal__text">
             {{ item.description.top }}
-          </p>
+          </p> -->
           <button class="modal__button-share">
             Поделиться
           </button>
         </div>
 
-        <img
+        <!-- <img
           class="modal__image"
           :src="item.image.src"
           :alt="item.image.alt"
-        >
+        > -->
 
-        <p class="modal__text">
+        <!-- <p class="modal__text">
           {{ item.description.bottom }}
-        </p>
+        </p> -->
         <NewsList
           title="Ещё статьи"
           :background="{ block: 'var(--gray-lightest)', container: 'var(--white)' }"

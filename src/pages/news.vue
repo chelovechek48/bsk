@@ -5,15 +5,22 @@ import json from '@json/news.json';
 
 const route = useRoute();
 
-const popup = ref(null);
+const popupTitle = ref(null);
 
 const updateTitle = () => {
-  popup.value = route.query.title;
+  popupTitle.value = route.query.title;
 };
 
 onMounted(() => {
   updateTitle();
 });
+
+const url = 'https://bsk-admin.testers-site.ru/api/news/';
+const defTitle = 'chto-budet-s-ipotekoy-v-2024-godu';
+
+const { data } = await useFetch(`${url}${defTitle}`);
+
+const item = ref(data.value.data.result);
 
 watch(
   () => route.query.title,
@@ -34,8 +41,8 @@ definePageMeta({
       :background="{ block: 'var(--white)', container: 'var(--gray-lightest)' }"
     />
     <NewsModal
-      v-if="popup"
-      :item="json.find((item) => item.id === popup)"
+      v-if="popupTitle"
+      :item="item"
     />
   </div>
 </template>

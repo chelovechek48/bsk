@@ -1,4 +1,5 @@
 <script setup>
+
 defineProps({
   tags: {
     type: Array,
@@ -15,7 +16,7 @@ defineProps({
       v-for="tag in tags"
       :key="tag"
     >
-      {{ tag }}
+      {{ (tag.values || [''])[0].name }}
     </li>
   </ul>
 </template>
